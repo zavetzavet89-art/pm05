@@ -7,8 +7,7 @@ using _05pmuch.Services;
 namespace _05pmuch.Forms
 {
     /// <summary>
-    /// MainDashboard — главная панель управления (прототип §1.3 роадмапа).
-    /// Навигационное меню слева, рабочая область, строка состояния с данными сессии.
+    /// Рабочая главная панель управления (§4.1).
     /// </summary>
     public class MainForm : Form
     {
@@ -31,7 +30,6 @@ namespace _05pmuch.Forms
         private Button _btnPayments;
         private Button _btnUsers;
         private Button _btnLogs;
-        private Button _btnActive;
 
         public MainForm(User currentUser)
         {
@@ -46,7 +44,6 @@ namespace _05pmuch.Forms
                 "Туристическое агентство",
                 "Главная панель управления · TravelDesk");
 
-            // --- Боковое навигационное меню ---
             _pnlNav = new Panel
             {
                 Dock = DockStyle.Left,
@@ -97,7 +94,6 @@ namespace _05pmuch.Forms
             _pnlNav.Controls.Add(navStack);
             _pnlNav.Controls.Add(lblNavTitle);
 
-            // --- Центральная рабочая область (прототип) ---
             _pnlContent = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -139,22 +135,12 @@ namespace _05pmuch.Forms
                 ForeColor = AppTheme.PrimaryDark
             };
 
-            var lblProtoNote = new Label
-            {
-                Text = "Рисунок 1 — прототип главного окна приложения",
-                AutoSize = true,
-                Location = new Point(0, 310),
-                Font = new Font("Segoe UI", 8f, FontStyle.Italic),
-                ForeColor = Color.FromArgb(160, 140, 130)
-            };
-
             card.Controls.AddRange(new Control[]
             {
-                _lblWelcomeTitle, _lblWelcomeBody, _lblModules, lblProtoNote
+                _lblWelcomeTitle, _lblWelcomeBody, _lblModules
             });
             _pnlContent.Controls.Add(card);
 
-            // --- Строка состояния (данные сессии) ---
             _statusStrip = new StatusStrip
             {
                 BackColor = AppTheme.PrimaryDark,
@@ -211,32 +197,8 @@ namespace _05pmuch.Forms
         {
             var btn = new Button { Text = text };
             AppTheme.StyleNavButton(btn);
-            btn.Click += (s, e) =>
-            {
-                SetActiveNavButton((Button)s);
-                click(s, e);
-            };
+            btn.Click += click;
             return btn;
-        }
-
-        private void SetActiveNavButton(Button active)
-        {
-            foreach (Control c in GetNavButtons())
-            {
-                if (c is Button b)
-                    AppTheme.StyleNavButton(b);
-            }
-            _btnActive = active;
-            AppTheme.StyleNavButtonActive(active);
-        }
-
-        private Control[] GetNavButtons()
-        {
-            return new Control[]
-            {
-                _btnCountries, _btnTours, _btnClients, _btnBookings,
-                _btnPayments, _btnUsers, _btnLogs
-            };
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -257,8 +219,6 @@ namespace _05pmuch.Forms
             _clockTimer.Start();
 
             ApplyRoleVisibility();
-
-            SetActiveNavButton(_btnTours);
         }
 
         private static string BuildModulesDescription(string roleName)

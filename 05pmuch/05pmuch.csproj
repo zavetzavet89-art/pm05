@@ -79,6 +79,9 @@
     <Compile Include="Forms\LoginAttemptsForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\MainDashboardPrototypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

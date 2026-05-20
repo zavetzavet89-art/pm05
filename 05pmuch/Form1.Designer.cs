@@ -79,7 +79,7 @@
             this.pnlCard.Controls.Add(this.lblFormTitle);
             this.pnlCard.Location = new System.Drawing.Point(24, 104);
             this.pnlCard.Name = "pnlCard";
-            this.pnlCard.Size = new System.Drawing.Size(372, 360);
+            this.pnlCard.Size = new System.Drawing.Size(372, 348);
             this.pnlCard.TabIndex = 1;
             // 
             // lblFormTitle
@@ -184,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(250, 244, 235);
-            this.ClientSize = new System.Drawing.Size(420, 480);
+            this.ClientSize = new System.Drawing.Size(420, 468);
             this.Controls.Add(this.pnlCard);
             this.Controls.Add(this.pnlTop);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
