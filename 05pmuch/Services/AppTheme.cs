@@ -64,6 +64,60 @@ namespace _05pmuch.Services
             button.Margin = new Padding(4, 0, 4, 0);
         }
 
+        public static void StyleNavButton(Button button)
+        {
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.BackColor = Card;
+            button.ForeColor = Primary;
+            button.Font = MenuFont;
+            button.TextAlign = ContentAlignment.MiddleLeft;
+            button.Padding = new Padding(14, 0, 0, 0);
+            button.Cursor = Cursors.Hand;
+            button.UseVisualStyleBackColor = false;
+            button.Height = 38;
+            button.Dock = DockStyle.Top;
+        }
+
+        public static void StyleNavButtonActive(Button button)
+        {
+            StyleNavButton(button);
+            button.BackColor = Color.FromArgb(235, 220, 200);
+            button.Font = new Font("Segoe UI", 9.5f, FontStyle.Bold);
+        }
+
+        public static void StyleLogoutNavButton(Button button)
+        {
+            StyleNavButton(button);
+            button.BackColor = Color.FromArgb(245, 235, 225);
+            button.ForeColor = PrimaryDark;
+            button.Font = new Font("Segoe UI", 9f, FontStyle.Italic);
+        }
+
+        public static void StyleMenuButton(Button button)
+        {
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.BackColor = Card;
+            button.ForeColor = Primary;
+            button.Font = MenuFont;
+            button.TextAlign = ContentAlignment.MiddleLeft;
+            button.Padding = new Padding(14, 0, 0, 0);
+            button.Cursor = Cursors.Hand;
+            button.UseVisualStyleBackColor = false;
+        }
+
+        public static void StyleLogoutButton(Button button)
+        {
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.BackColor = Color.FromArgb(240, 225, 215);
+            button.ForeColor = PrimaryDark;
+            button.Font = new Font("Segoe UI", 9f, FontStyle.Italic);
+            button.Cursor = Cursors.Hand;
+            button.UseVisualStyleBackColor = false;
+        }
+
         public static void StyleDataGridView(DataGridView grid)
         {
             grid.BackgroundColor = Card;
